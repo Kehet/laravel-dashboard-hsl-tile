@@ -10,7 +10,7 @@
         </div>
         <div wire:poll.{{ $refreshIntervalInSeconds }}s class="self-center | grid gap-8">
 
-            @foreach ($stops as $stop)
+            @forelse ($stops as $stop)
 
                 <div class="grid gap-2">
                     <h2 class="uppercase">
@@ -20,10 +20,7 @@
 
                         @foreach ($stop['stoptimes'] as $stoptime)
 
-                            <li class="
-                                    grid grid-cols-1-auto-auto py-1
-                                    {{ false ? 'line-through text-danger' : '' }}
-                                ">
+                            <li class="grid grid-cols-1-auto-auto py-1">
                                     <span class="mr-2">
                                         @switch($stop['vehicleMode'])
                                             @case('AIRPLANE')
@@ -72,12 +69,6 @@
                                         {{$stoptime['headsign']}}
                                     </span>
 
-                                @if(false)
-                                    <span class="ml-auto mr-2 font-bold variant-tabular text-danger">
-                                            {{ $train['delay'] }}m
-                                        </span>
-                                @endif
-
                                 <span class="
                                         flex-none font-bold text-right variant-tabular
                                         {{ $stoptime['realtime'] ? 'text-green' : '' }}
@@ -88,7 +79,9 @@
                         @endforeach
                     </ul>
                 </div>
-            @endforeach
+            @empty
+                    No stops added, please refer to documentation
+            @endforelse
         </div>
     </div>
 </x-dashboard-tile>

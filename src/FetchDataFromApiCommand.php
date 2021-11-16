@@ -18,8 +18,12 @@ class FetchDataFromApiCommand extends Command
 
         $stops = [];
 
-        foreach (config('dashboard.tiles.hsl.stops', []) as $id) {
-            $stops[] = $this->getStopData($id);
+        foreach (config('dashboard.tiles.hsl.stops', []) as $stop) {
+            try {
+                $stops[] = $this->getStopData($stop);
+            } catch (\Exception $e) {
+                $this->error($e->getMessage());
+            }
         }
 
         HSLStore::make()->setData('stops', $stops);
@@ -27,13 +31,21 @@ class FetchDataFromApiCommand extends Command
         $this->info('All done!');
     }
 
-    private function getStopData(string $id): array
+    /**
+     * @throws \Exception
+     */
+    private function getStopData(array $stopConfig): array
     {
-        $stop = $this->makeStopGraphQL($id);
+        $stop = $this->makeStopGraphQL($stopConfig['id']);
+
+        if($stop['data']['stop'] == null) {
+            throw new \Exception('Stop "'.$stopConfig['id'].'" not found');
+        }
+
         $routes = collect($stop['data']['stop']['routes']);
 
         return [
-            'name' => $stop['data']['stop']['name'],
+            'name' => $stopConfig['title'] ?? $stop['data']['stop']['name'],
             'vehicleMode' => $stop['data']['stop']['vehicleMode'],
             'stoptimes' => collect($stop['data']['stop']['stoptimesWithoutPatterns'])
                 ->map(function ($stoptime) use ($routes) {
@@ -61,7 +73,7 @@ class FetchDataFromApiCommand extends Command
     {
         $body = <<<GRAPHQL
 {
-  stop(id: "HSL:$id") {
+  stop(id: "$id") {
     name
     vehicleMode
     routes {

@@ -1,8 +1,10 @@
-# A short description of the tile
+# HSL public transport (Finland) tile for Laravel Dashboard
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/kehet/laravel-dashboard-hsl-tile.svg?style=flat-square)](https://packagist.org/packages/kehet/laravel-dashboard-hsl-tile)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/kehet/laravel-dashboard-hsl-tile/run-tests?label=tests)](https://github.com/kehet/laravel-dashboard-hsl-tile/actions?query=workflow%3Arun-tests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/kehet/laravel-dashboard-hsl-tile.svg?style=flat-square)](https://packagist.org/packages/kehet/laravel-dashboard-hsl-tile)
+
+[![Screenshot](./screenshot.png)](./screenshot.png)
 
 This tile show HSL (Helsinki Regional Transport Authority) data for given stops
 
@@ -30,7 +32,10 @@ return [
     'tiles' => [
         'hsl' => [
             'stops' => [
-                'HSL:1020602',
+                [
+                    'id' => 'HSL:1020602',
+                    'title' => null,
+                ],
             ],
             'refresh_interval_in_seconds' => 60,
         ],
