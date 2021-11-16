@@ -16,13 +16,41 @@ You can install the package via composer:
 composer require kehet/laravel-dashboard-hsl-tile
 ```
 
+In app\Console\Kernel.php you should schedule the Kehet\HSLTile\FetchDataFromApiCommand to run.
+You can let in run every minute if you want. You could also run is less frequently if you fast 
+updates on the dashboard aren't that important for this tile.
+
+In the dashboard config file, you must add this configuration in the tiles key. 
+The value belgian_trains should be an array of which each value is array with keys departure, destination and label.
+
+```php
+// in config/dashboard.php
+
+return [
+    'tiles' => [
+        'hsl' => [
+            'stops' => [
+                'HSL:1020602',
+            ],
+            'refresh_interval_in_seconds' => 60,
+        ],
+    ],
+];
+```
+
+To publish required CSS file, you must publish assets
+
+```
+php artisan vendor:publish --provider="Kehet\HSLTile\HSLTileServiceProvider"
+```
+
 ## Usage
 
 In your dashboard view you use the `livewire:hsl-tile` component.
 
 ```html
 <x-dashboard>
-    <livewire:my-tile position="e7:e16" />
+    <livewire:hsl-tile position="a1:a3" />
 </x-dashboard>
 ```
 
