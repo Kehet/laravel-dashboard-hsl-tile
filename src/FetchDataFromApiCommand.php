@@ -38,7 +38,7 @@ class FetchDataFromApiCommand extends Command
     {
         $stop = $this->makeStopGraphQL($stopConfig['id']);
 
-        if($stop['data']['stop'] == null) {
+        if ($stop['data']['stop'] == null) {
             throw new \Exception('Stop "'.$stopConfig['id'].'" not found');
         }
 
