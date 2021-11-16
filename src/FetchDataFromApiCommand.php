@@ -33,9 +33,9 @@ class FetchDataFromApiCommand extends Command
         $routes = collect($stop['data']['stop']['routes']);
 
         return [
-            'name'        => $stop['data']['stop']['name'],
+            'name' => $stop['data']['stop']['name'],
             'vehicleMode' => $stop['data']['stop']['vehicleMode'],
-            'stoptimes'   => collect($stop['data']['stop']['stoptimesWithoutPatterns'])
+            'stoptimes' => collect($stop['data']['stop']['stoptimesWithoutPatterns'])
                 ->map(function ($stoptime) use ($routes) {
                     $stoptime['route'] = $routes->firstWhere('gtfsId', '=', $stoptime['trip']['route']['gtfsId']);
                     $stoptime['scheduledArrival'] = Carbon::createFromTimestamp($stoptime['serviceDay'])
@@ -46,6 +46,7 @@ class FetchDataFromApiCommand extends Command
                         ->addSeconds($stoptime['realtimeDeparture']);
                     $stoptime['scheduledDeparture'] = Carbon::createFromTimestamp($stoptime['serviceDay'])
                         ->addSeconds($stoptime['scheduledDeparture']);
+
                     return $stoptime;
                 }),
         ];
