@@ -1,0 +1,40 @@
+
+.route-number-container {
+    display: inline-block;
+    border-radius: 3px;
+    width: 3em;
+    height: 1.5em;
+    text-align: center;
+}
+
+.route-number-container.airplane {
+    background-color: #0046ad
+}
+
+.route-number-container.bus {
+    background-color: #007ac9;
+}
+
+.route-number-container.tram {
+    background-color: #008151;
+}
+
+.route-number-container.subway {
+    background-color: #ca4000;
+}
+
+.route-number-container.rail {
+    background-color: #8c4799;
+}
+
+.route-number-container.ferry {
+    background-color: #007a97;
+}
+
+.route-number-container.car {
+    background-color: #333;
+}
+
+.route-number-container.other {
+    background-color: #666;
+}

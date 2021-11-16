@@ -1,32 +1,24 @@
 # A short description of the tile
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor/:package_name.svg?style=flat-square)](https://packagist.org/packages/:vendor/:package_name)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/:vendor/:package_name/run-tests?label=tests)](https://github.com/:vendor/:package_name/actions?query=workflow%3Arun-tests+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor/:package_name.svg?style=flat-square)](https://packagist.org/packages/:vendor/:package_name)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/kehet/laravel-dashboard-hsl-tile.svg?style=flat-square)](https://packagist.org/packages/kehet/laravel-dashboard-hsl-tile)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/kehet/laravel-dashboard-hsl-tile/run-tests?label=tests)](https://github.com/kehet/laravel-dashboard-hsl-tile/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/kehet/laravel-dashboard-hsl-tile.svg?style=flat-square)](https://packagist.org/packages/kehet/laravel-dashboard-hsl-tile)
 
-A friendly explanation of what your tile does.
+This tile show HSL (Helsinki Regional Transport Authority) data for given stops
 
 This tile can be used on [the Laravel Dashboard](https://docs.spatie.be/laravel-dashboard).
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-dashboard-skeleton-tile.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-dashboard-skeleton-tile)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require :vendor/:package_name
+composer require kehet/laravel-dashboard-hsl-tile
 ```
 
 ## Usage
 
-In your dashboard view you use the `livewire:my-tile` component.
+In your dashboard view you use the `livewire:hsl-tile` component.
 
 ```html
 <x-dashboard>
@@ -42,15 +34,9 @@ composer test
 
 ## Changelog
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+## 1.0.0 - 2021-11-16
 
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security
-
-If you discover any security related issues, please email :author_email instead of using the issue tracker.
+- initial release
 
 ## Credits
 

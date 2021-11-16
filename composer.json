@@ -1,17 +1,15 @@
 {
-    "name": ":vendor/:package_name",
-    "description": ":package_description",
+    "name": "kehet/laravel-dashboard-hsl-tile",
+    "description": "HSL tile for Spatie Laravel Dashboard",
     "keywords": [
-        ":vendor",
-        ":package_name"
+        "kehet",
+        "laravel-dashboard-hsl-tile"
     ],
-    "homepage": "https://github.com/:vendor/:package_name",
+    "homepage": "https://github.com/kehet/laravel-dashboard-hsl-tile",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": "https://:vendor.be",
+            "name": "Kehet",
             "role": "Developer"
         }
     ],
@@ -24,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\MyTile\\": "src"
+            "Kehet\\HSLTile\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\MyTile\\Tests\\": "tests"
+            "Kehet\\HSLTile\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -43,7 +41,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\MyTile\\MyTileServiceProvider"
+                "Kehet\\HSLTile\\HSLTileServiceProvider"
             ]
         }
     },
