@@ -28,6 +28,7 @@ class HSLStore
     public function getData($key): array
     {
         $data = $this->tile->getData($key);
+
         return isset($data) ? unserialize($data) : [];
     }
 }
