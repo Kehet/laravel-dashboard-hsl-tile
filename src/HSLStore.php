@@ -20,7 +20,7 @@ class HSLStore
 
     public function setData(string $key, array $data): self
     {
-        $this->tile->putData($key, serialize($data));
+        $this->tile->putData($key, json_encode($data, JSON_THROW_ON_ERROR));
 
         return $this;
     }
@@ -29,6 +29,6 @@ class HSLStore
     {
         $data = $this->tile->getData($key);
 
-        return isset($data) ? unserialize($data) : [];
+        return isset($data) ? json_decode($data, false, 512, JSON_THROW_ON_ERROR) : [];
     }
 }

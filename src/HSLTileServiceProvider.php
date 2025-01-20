@@ -2,32 +2,22 @@
 
 namespace Kehet\HSLTile;
 
-use Illuminate\Support\ServiceProvider;
-use Livewire\Livewire;
-use Spatie\Dashboard\Facades\Dashboard;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class HSLTileServiceProvider extends ServiceProvider
+class HSLTileServiceProvider extends PackageServiceProvider
 {
-    public function boot()
+
+    public function configurePackage(Package $package): void
     {
-        if ($this->app->runningInConsole()) {
-            $this->commands([
-                FetchDataFromApiCommand::class,
-            ]);
+        $package
+            ->name('dashboard-hsl-tile')
+            ->hasViews()
+            ->hasCommand(FetchDataFromApiCommand::class);
+
+        if (!$this->app->runningInConsole()) {
+            \Livewire\Livewire::component('hsl-tile', HSLTileComponent::class);
         }
-
-        $this->publishes([
-            __DIR__ . '/../resources/views' => resource_path('views/vendor/dashboard-hsl-tile'),
-        ], 'dashboard-my-tile-views');
-
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'dashboard-hsl-tile');
-
-        $this->publishes([
-            __DIR__.'/../resources/css' => public_path('vendor/dashboard-hsl-tile'),
-        ], 'dashboard-my-tile-views');
-
-        Dashboard::stylesheet(asset('vendor/dashboard-hsl-tile/hsl.css'));
-
-        Livewire::component('hsl-tile', HSLTileComponent::class);
     }
+
 }

@@ -25,37 +25,37 @@
                                         @switch($stop['vehicleMode'])
                                             @case('AIRPLANE')
                                             <span
-                                                class="route-number-container airplane">{{$stoptime['route']['shortName']}}</span>
+                                                class="inline-flex rounded px-2 py-1 text-sm font-semibold leading-4 text-white bg-[#0046ad]">{{$stoptime['route']['shortName']}}</span>
                                             @break
 
                                             @case('BUS')
                                             <span
-                                                class="route-number-container bus">{{$stoptime['route']['shortName']}}</span>
+                                                class="inline-flex rounded px-2 py-1 text-sm font-semibold leading-4 text-white bg-[#007ac9]">{{$stoptime['route']['shortName']}}</span>
                                             @break
 
                                             @case('TRAM')
                                             <span
-                                                class="route-number-container tram">{{$stoptime['route']['shortName']}}</span>
+                                                class="inline-flex rounded px-2 py-1 text-sm font-semibold leading-4 text-white bg-[#008151]">{{$stoptime['route']['shortName']}}</span>
                                             @break
 
                                             @case('SUBWAY')
                                             <span
-                                                class="route-number-container subway">{{$stoptime['route']['shortName']}}</span>
+                                                class="inline-flex rounded px-2 py-1 text-sm font-semibold leading-4 text-white bg-[#ca4000]">{{$stoptime['route']['shortName']}}</span>
                                             @break
 
                                             @case('RAIL')
                                             <span
-                                                class="route-number-container rail">{{$stoptime['route']['shortName']}}</span>
+                                                class="inline-flex rounded px-2 py-1 text-sm font-semibold leading-4 text-white bg-[#8c4799]">{{$stoptime['route']['shortName']}}</span>
                                             @break
 
                                             @case('FERRY')
                                             <span
-                                                class="route-number-container ferry">{{$stoptime['route']['shortName']}}</span>
+                                                class="inline-flex rounded px-2 py-1 text-sm font-semibold leading-4 text-white bg-[#007a97]">{{$stoptime['route']['shortName']}}</span>
                                             @break
 
                                             @case('CAR')
                                             <span
-                                                class="route-number-container car">{{$stoptime['route']['shortName']}}</span>
+                                                class="inline-flex rounded px-2 py-1 text-sm font-semibold leading-4 text-white bg-[#333]">{{$stoptime['route']['shortName']}}</span>
                                             @break
 
                                             @case('BICYCLE')
@@ -64,7 +64,7 @@
                                             @case('GONDOLA')
                                             @case('WALK')
                                             <span
-                                                class="route-number-container other">{{$stoptime['route']['shortName']}}</span>
+                                                class="inline-flex rounded px-2 py-1 text-sm font-semibold leading-4 text-white bg-[#666]">{{$stoptime['route']['shortName']}}</span>
                                         @endswitch
                                         {{$stoptime['headsign']}}
                                     </span>
