@@ -10,12 +10,12 @@ class HSLStore
 
     public static function make()
     {
-        return new static();
+        return new static;
     }
 
     public function __construct()
     {
-        $this->tile = Tile::firstOrCreateForName("hsl-tile");
+        $this->tile = Tile::firstOrCreateForName('hsl-tile');
     }
 
     public function setData(string $key, array $data): self

@@ -65,8 +65,6 @@ class FetchDataFromApiCommand extends Command
     }
 
     /**
-     * @param  string  $id
-     *
      * @return array|mixed
      */
     private function makeStopGraphQL(string $id)

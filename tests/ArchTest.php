@@ -28,5 +28,3 @@ if (class_exists('Pest\Preset')) {
         ->preset()
         ->security()->ignoring('md5');
 }
-
-
